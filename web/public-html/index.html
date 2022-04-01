@@ -1,0 +1,31 @@
+<script>
+async function saveStudent() {
+    let studentName = document.getElementById('name').value;
+    let studentAge = document.getElementById('age').value;
+    let postData = {
+        name: studentName,
+        age: studentAge
+    };
+
+    const response = await fetch("http://localhost:5000/student", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    });
+
+    alert(response.json());
+}
+</script>
+<p>Crear alumno</p>
+<div>
+    <label>Nombre:</label>
+    <input id='name' />
+</div>
+<div>
+    <label>Edad:</label>
+    <input id='age' />
+</div>
+<button onclick='saveStudent()'>Enviar</button>
+
