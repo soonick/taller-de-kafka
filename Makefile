@@ -1,4 +1,8 @@
-build:
+clean:
+	docker-compose down
+.PHONY: clean
+
+build: clean
 	docker-compose build
 .PHONY: build
 
