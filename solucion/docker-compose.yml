@@ -9,6 +9,8 @@ services:
     container_name: web
     ports:
       - 8080:80
+    volumes:
+      - "./web/public-html:/usr/local/apache2/htdocs/"
 
   api:
     build: ./api
@@ -57,6 +59,7 @@ services:
 
   postgres:
     image: postgres
+    container_name: postgres
     environment:
       POSTGRES_PASSWORD: mipassword
       POSTGRES_DB: escuela
@@ -64,6 +67,8 @@ services:
   consumidor-postgres:
     build: ./consumidor-postgres
     container_name: consumidor-postgres
+    volumes:
+      - "./consumidor-postgres:/app"
     depends_on:
       - kafka
       - postgres

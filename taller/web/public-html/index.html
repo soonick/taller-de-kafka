@@ -1,0 +1,35 @@
+<script>
+async function guardarAlumno() {
+    let nombre = document.getElementById('nombre').value;
+    let edad = document.getElementById('edad').value;
+    let postData = {
+        nombre: nombre,
+        edad: edad
+    };
+
+    const response = await fetch("http://localhost:5000/alumno", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    });
+
+    if (response.status === 204) {
+      alert('Alumno fue creado');
+    } else {
+      alert('Error creando alumno');
+    }
+}
+</script>
+<p>Crear alumno</p>
+<div>
+    <label>Nombre:</label>
+    <input id='nombre' />
+</div>
+<div>
+    <label>Edad:</label>
+    <input id='edad' />
+</div>
+<button onclick='guardarAlumno()'>Enviar</button>
+
