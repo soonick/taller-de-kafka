@@ -2,7 +2,6 @@ from confluent_kafka import Consumer, KafkaException
 from confluent_kafka.admin import AdminClient, NewTopic
 from prometheus_client import start_http_server, Counter
 import json
-import random
 import time
 
 TOPIC_ALUMNOS = "alumnos"

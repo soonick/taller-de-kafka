@@ -35,3 +35,5 @@ crear_tabla_de_alumnos()
 #   https://docs.confluent.io/clients-confluent-kafka-python/current/overview.html#basic-poll-loop
 # - Guarda cada alumno en la base de datos usando psycopg2:
 #   https://www.psycopg.org/docs/usage.html
+# - Verifica que los usuarios hayan sido guardados:
+#   docker exec -it postgres psql -U postgres -d escuela -c 'SELECT * FROM alumnos';

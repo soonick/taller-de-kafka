@@ -74,3 +74,26 @@ services:
       - postgres
     environment:
       PYTHONUNBUFFERED: 'true'
+
+  ##############
+  # Prometheus #
+  ##############
+
+  prometheus:
+    build: ./prometheus
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    command: --config.file=/etc/prometheus/prometheus.yml --log.level=debug
+
+  consumidor-prometheus:
+    build: ./consumidor-prometheus
+    container_name: consumidor-prometheus
+    volumes:
+      - "./consumidor-prometheus:/app"
+    ports:
+      - 5777:5777
+    depends_on:
+      - kafka
+    environment:
+      PYTHONUNBUFFERED: 'true'

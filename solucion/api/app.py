@@ -2,7 +2,6 @@ from flask import Flask, request
 from flask_cors import CORS
 from confluent_kafka import Producer
 import socket
-import time
 import json
 
 app = Flask(__name__)

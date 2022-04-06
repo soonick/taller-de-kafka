@@ -89,6 +89,8 @@ services:
   consumidor-prometheus:
     build: ./consumidor-prometheus
     container_name: consumidor-prometheus
+    volumes:
+      - "./consumidor-prometheus:/app"
     ports:
       - 5777:5777
     depends_on:
